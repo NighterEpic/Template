@@ -120,6 +120,22 @@ function DiscordLib:Window(text)
 	MainFrame.ClipsDescendants = true
 	MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 	MainFrame.Size = UDim2.new(0, 681, 0, 396)
+	opened = true
+        game:GetService("UserInputService").InputBegan:connect(function(input)
+	if input.KeyCode == Enum.KeyCode.V then -- the button lol
+		if opened == true then
+			MainFrame:TweenSize(UDim2.new(0, 439,0, 0), "InOut", "Linear", 0.2, true) -- small make sure the "Main" Frame change it to ur frame name and make sure ClipDesendants is enabled!
+			wait(0.2)
+			MainFrame.Visible = false
+			opened = false
+		elseif opened == false then
+			MainFrame:TweenSize(UDim2.new(0, 439,0, 284), "InOut", "Linear", 0.2, true) --original
+			wait()
+			MainFrame.Visible = true
+			opened = true
+		end
+	end
+end)
 
 	TopFrame.Name = "TopFrame"
 	TopFrame.Parent = MainFrame
@@ -3242,22 +3258,4 @@ function DiscordLib:Window(text)
 	end
 	return ServerHold
 end
-opened = true
-MainFrame.ClipsDescendants = true
-game:GetService("UserInputService").InputBegan:connect(function(input)
-	if input.KeyCode == Enum.KeyCode.V then -- the button lol
-		if opened == true then
-			MainFrame:TweenSize(UDim2.new(0, 439,0, 0), "InOut", "Linear", 0.2, true) -- small make sure the "Main" Frame change it to ur frame name and make sure ClipDesendants is enabled!
-			wait(0.2)
-			MainFrame.Visible = false
-			opened = false
-		elseif opened == false then
-			MainFrame:TweenSize(UDim2.new(0, 439,0, 284), "InOut", "Linear", 0.2, true) --original
-			wait()
-			MainFrame.Visible = true
-			opened = true
-		end
-	end
-end)
-
 return DiscordLib
