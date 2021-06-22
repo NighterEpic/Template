@@ -3242,17 +3242,23 @@ function DiscordLib:Window(text)
 	end
 	return ServerHold
 end
-local Toggled = false
-game:GetService("UserInputService").InputBegan:connect(function(Key, g)
-	if g then return end;
-	if Key.KeyCode == Enum.KeyCode.V then
-		if Toggled == false then
-			Toggled = true
-		    MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
-		elseif Toggled == true then
-			Toggled = false;
-			MainFrame:TweenSize(UDim2.new(0, 681, 0, 396), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
-		end;
-	end;
+local Main = script.Parent.Main
+opened = true
+Main.ClipsDescendants = true
+game:GetService("UserInputService").InputBegan:connect(function(input)
+	if input.KeyCode == Enum.KeyCode.V then -- the button lol
+		if opened == true then
+			MainFrame:TweenSize(UDim2.new(0, 439,0, 0), "InOut", "Linear", 0.2, true) -- small make sure the "Main" Frame change it to ur frame name and make sure ClipDesendants is enabled!
+			wait(0.2)
+			MainFrame.Visible = false
+			opened = false
+		elseif opened == false then
+			MainFrame:TweenSize(UDim2.new(0, 439,0, 284), "InOut", "Linear", 0.2, true) --original
+			wait()
+			MainFrame.Visible = true
+			opened = true
+		end
+	end
 end)
+
 return DiscordLib
