@@ -3242,9 +3242,8 @@ function DiscordLib:Window(text)
 	end
 	return ServerHold
 end
-local Main = script.Parent.Main
 opened = true
-Main.ClipsDescendants = true
+MainFrame.ClipsDescendants = true
 game:GetService("UserInputService").InputBegan:connect(function(input)
 	if input.KeyCode == Enum.KeyCode.V then -- the button lol
 		if opened == true then
