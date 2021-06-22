@@ -124,12 +124,12 @@ function DiscordLib:Window(text)
         game:GetService("UserInputService").InputBegan:connect(function(input)
 	if input.KeyCode == Enum.KeyCode.V then -- the button lol
 		if opened == true then
-			MainFrame:TweenSize(UDim2.new(0, 439,0, 0), "InOut", "Linear", 0.2, true) -- small make sure the "Main" Frame change it to ur frame name and make sure ClipDesendants is enabled!
+			MainFrame:TweenSize(UDim2.new(0, 681, 0, 0), "InOut", "Linear", 0.2, true) -- small make sure the "Main" Frame change it to ur frame name and make sure ClipDesendants is enabled!
 			wait(0.2)
 			MainFrame.Visible = false
 			opened = false
 		elseif opened == false then
-			MainFrame:TweenSize(UDim2.new(0, 439,0, 284), "InOut", "Linear", 0.2, true) --original
+			MainFrame:TweenSize(UDim2.new(0, 681, 0, 396), "InOut", "Linear", 0.2, true) --original
 			wait()
 			MainFrame.Visible = true
 			opened = true
