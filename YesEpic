@@ -3242,4 +3242,17 @@ function DiscordLib:Window(text)
 	end
 	return ServerHold
 end
+local Toggled = false
+game:GetService("UserInputService").InputBegan:connect(function(Key, g)
+	if g then return end;
+	if Key.KeyCode == Enum.KeyCode.V then
+		if Toggled == false then
+			Toggled = true
+		    MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+		elseif Toggled == true then
+			Toggled = false;
+			MainFrame:TweenSize(UDim2.new(0, 681, 0, 396), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+		end;
+	end;
+end)
 return DiscordLib
